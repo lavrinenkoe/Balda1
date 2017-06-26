@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llPlayers"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rect"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/lvtvPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:text="">
+    </TextView>
+    <TextView
+        android:id="@+id/lvtvPlayerScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:text="">
+    </TextView>
+</LinearLayout>
