@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lavr.balda1.ui.AddWordActivity">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvText"/>
+        <TextView
+            android:id="@+id/tvWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            />
+
+        <Button android:id="@+id/cmdAddWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="cmdAddWord"
+            android:text="@string/add_word"
+            />
+        <Button android:id="@+id/cmdCancelAddWord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="cancelAddWord"
+            android:text="@string/cancel"
+            />
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

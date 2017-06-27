@@ -7,37 +7,32 @@ import java.util.List;
 import java.util.Set;
 import java.util.Vector;
 
-/**
- * Created by Lavr on 01.06.2017.
- */
-
-
-
+/* Created by Lavr on 01.06.2017. */
 
 public class PlayerController {
     private Vector<PlayerInfo> _players;
     public PlayerController()
     {
-        _players = new Vector<PlayerInfo>();
+        _players = new Vector<>();
     }
 
     public Vector<PlayerInfo> GetAllPlayers(){
         return _players;
     }
 
-    public SearchResult PlayerExists(String name)
+    private SearchResult PlayerExists(String name)
     {
         int index = -1;
         for(int i = 0; i < _players.size(); i++)
         {
-            if(_players.get(i).getName() == name)
+            if(_players.get(i).getName().equals(name))
                 index = i;
         }
 
         boolean isFound = (index > -1);
-        SearchResult r = new SearchResult(name, index, isFound);
-        return r;
+        return new SearchResult(name, index, isFound);
     }
+
     public boolean AddPlayer(PlayerInfo player)
     {
         SearchResult r = PlayerExists(player.getName());
@@ -58,20 +53,20 @@ public class PlayerController {
         if(r.isFound)
             return _players.get(r.index);
 
-        throw new Error(String.format("Player with name {0} doesn't exist", name));
+        throw new Error(String.format("Player with name %1$s doesn't exist", name));
     }
 
     public void SetCurrent(String name)
     {
         for(int i = 0; i < _players.size(); i++)
         {
-            if(_players.get(i).getName() == name)
+            if(_players.get(i).getName().equals(name))
                 _players.get(i).setIsCurrent(true);
             else
                 _players.get(i).setIsCurrent(false);
         }
     }
-    public void SetCurrent(int index)
+    private void SetCurrent(int index)
     {
         for(int i = 0; i < _players.size(); i++)
         {
@@ -96,11 +91,11 @@ public class PlayerController {
     }
 
 
-    public int GetPlayerIndex(String name)
+    private int GetPlayerIndex(String name)
     {
         for(int i = 0; i < _players.size(); i++)
         {
-            if(_players.get(i).getName() == name) return i;
+            if(_players.get(i).getName().equals(name)) return i;
         }
         return -1;
     }
@@ -127,7 +122,7 @@ public class PlayerController {
         Vector<String> words = _players.get(index).getWords();
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < words.size(); i++) {
-            sb.append(words.get(i) + "\n");
+            sb.append(i).append(". ").append(words.get(i)).append("\n");
         }
         return sb.toString();
     }
