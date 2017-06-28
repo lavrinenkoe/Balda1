@@ -18,12 +18,17 @@ public class SqlLiteDataProvider extends SQLiteOpenHelper {
     private static final String WORDS_TABLE_NAME = "words";
     private static final String WORDS_COLUMN_VALUE = "value";
 private Context _context;
-    public Context getContext() { return _context; }
-    public void setContext(Context context) { _context = context; }
-
     public SqlLiteDataProvider(Context context){
         super(context, DATABASE_NAME, null, 1);
         setContext(context);
+    }
+
+    public Context getContext() {
+        return _context;
+    }
+
+    public void setContext(Context context) {
+        _context = context;
     }
 
     @Override
@@ -99,9 +104,7 @@ private Context _context;
     public String getRandomByLength(int length)
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        String q = "select * from " + WORDS_TABLE_NAME +
-        " where length("+ WORDS_COLUMN_VALUE +") = " + Integer.toString(length) +
-        " order by random() limit 1";
+        String q = "select * from " + WORDS_TABLE_NAME + " where length(" + WORDS_COLUMN_VALUE + ") = " + Integer.toString(length) + " order by random() limit 1";
         Cursor res =  db.rawQuery(q, null );
         res.moveToFirst();
 
